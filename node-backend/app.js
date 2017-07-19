@@ -9,7 +9,7 @@ var basePath = '/todo';
 var port = 6200;
 
 // Connection to DB
-mongoose.connect('mongodb://localhost')
+mongoose.connect('mongodb://mongodb')
     .then(() => {
       console.log('Backend Started');
     })
