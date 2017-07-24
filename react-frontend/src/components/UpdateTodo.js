@@ -24,16 +24,10 @@ export default class UpdateTodo extends Component {
   componentDidMount(){
     //the parameter ID
     let id =this.props.match.params.id;
-
-    //call the service
-    axios.get('http://localhost:6200/todo/'+id)
-    .then(response => {
-      //set the response data as the state (It has the same format)
-      this.setState(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
+    var thisRef = this;
+    this.todoService.get(id, function(data){
+      thisRef.setState(data);
+    });
   }
 
   handleChange(event) {

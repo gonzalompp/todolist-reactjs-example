@@ -13,6 +13,17 @@ export default class TodoService {
     });
   }
 
+  get(id,callback) {
+    axios.get('http://localhost:6200/todo/'+id)
+    .then((response) => {
+      callback(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+      callback(null);
+    });
+  }
+
   add(data,callback) {
     axios.post('http://localhost:6200/todo/add/', {
     desc: data
